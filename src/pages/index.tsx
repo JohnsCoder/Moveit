@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { GetServerSideProps } from 'next';
 import { CompletedChallenges } from '../components/CompletedChallenges';
@@ -12,6 +12,8 @@ import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { DarkTheme } from '../components/DarkTheme';
+import { DarkThemeProvider } from '../contexts/DarkThemeContext'
+import { DarkThemeContext } from '../contexts/DarkThemeContext';
 
 interface HomeProps {
   level: number;
@@ -20,22 +22,26 @@ interface HomeProps {
 }
 
 export default function Home(props) {
+
+  const { theme } = useContext(DarkThemeContext);
+  const text = 'black'
+  console.log(text)
   return (
+    <DarkThemeProvider>
     <ChallengesProvider
       level={props.level}
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
     >
-      <div className={styles.container}>
+      <div className={styles.container}
+      style={{background: theme}}>
 
         <Head>
           <title>Inicio | Move.it</title>
         </Head>
 
         <ExperienceBar />
-
         <div> <DarkTheme /></div>
-
         <CountdownProvider>
           <section>
             <div>
@@ -50,6 +56,7 @@ export default function Home(props) {
         </CountdownProvider>
       </div>
     </ChallengesProvider>
+        </DarkThemeProvider>
   )
 }
 

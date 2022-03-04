@@ -5,7 +5,7 @@
 }
 
 :root{
-    --white: #FFF;
+    --white: #ffffff;
     --background: #F2F3f5;
     --gray-line: #DCDDE0;
     --text: #666666;
@@ -16,6 +16,8 @@
     --blue: #5965E0;
     --blue-dark:#4953B8;
     --blue-twitter:#2AA9E0;
+    --background-dark: #121212;
+    --gray-dark: #2A2A2A;
 }
 
 @media(max-width: 1080px){

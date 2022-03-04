@@ -1,8 +1,8 @@
 .container {
     height: 100vh;
-    max-width: 992px;
+    /* max-width: 992px; */
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 1.4rem 25.25rem;
 
     display: flex;
     flex-direction: column;

@@ -1,24 +1,41 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 interface DarkthemeContextData {
+  theme: string;
+  changeTheme: () => void;
 }
 interface DarkThemeProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-export const DarkThemeContext = createContext({} as DarkthemeContextData)
+export const DarkThemeContext = createContext({} as DarkthemeContextData);
 
-export function DarkthemeProvider({ children }: DarkThemeProviderProps) {
+export function DarkThemeProvider({ children }: DarkThemeProviderProps) {
+  const [isActive, setIsActive] = useState(true);
+  const [theme, SetTheme] = useState('#ffffff')
 
-    const [checked, setChecked] = useState(false);
+  function changeTheme() {
+      setIsActive(false)
+    if (isActive === true) {
+        SetTheme('#2A2A2A')
+    } else {SetTheme('#ffffff')
+    setIsActive(true)
+}
+
+  }
 
 
-    return (
-        <DarkThemeContext.Provider value={{
-        }}>
-            {children}
 
-        </DarkThemeContext.Provider>
+  
 
-    )
+  return (
+    <DarkThemeContext.Provider
+      value={{
+        theme,
+        changeTheme,
+      }}
+    >
+      {children}
+    </DarkThemeContext.Provider>
+  );
 }
