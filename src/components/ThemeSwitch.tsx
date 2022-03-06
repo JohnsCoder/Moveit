@@ -1,25 +1,23 @@
-import React, { MouseEvent, useContext, useState } from "react";
+import React, {useContext } from "react";
 import styles from "../styles/components/DarkTheme.module.css";
+import { ThemeContext } from 'styled-components';
 
 import Switch from "react-switch";
 import { BsMoon, BsSun } from "react-icons/bs";
-import { DarkThemeContext } from "../contexts/DarkThemeContext";
 
-export function DarkTheme() {
-  const { changeTheme } = useContext(DarkThemeContext);
+interface Props {
+  toggleTheme(): void;
+}
 
-  const [checked, setChecked] = useState(false);
+ const ThemeSwitch: React.FC<Props> = ({ toggleTheme }) => {
+  const { title } = useContext(ThemeContext);
 
-  const handleChange = (nextChecked) => {
-    setChecked(nextChecked);
-    changeTheme()
-  };
   return (
     <div className={styles.darkTheme}>
       <Switch
         className={styles.switch}
-        onChange={handleChange}
-        checked={checked}
+        onChange={toggleTheme}
+        checked={title === 'dark'}
 
         offColor="#A9A9A9"
         onColor="#363636"
@@ -32,3 +30,4 @@ export function DarkTheme() {
     </div>
   );
 }
+export default ThemeSwitch

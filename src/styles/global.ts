@@ -1,6 +1,7 @@
 import { createGlobalStyle} from 'styled-components';
 
 export default createGlobalStyle`
+
 * {
     margin: 0;
     padding: 0;
@@ -8,17 +9,20 @@ export default createGlobalStyle`
 }
 
 :root{
-    --white: #FFF;
+    --white: #ffffff;
     --background: #F2F3f5;
     --gray-line: #DCDDE0;
     --text: #666666;
     --text-hilight: #B3B9FF;
     --title: #2E384D;
     --red: #E83F5B;
+    --red-dark:#ad3145;
     --green: #4CD62B;
     --blue: #5965E0;
     --blue-dark:#4953B8;
     --blue-twitter:#2AA9E0;
+    --background-dark: #121212;
+    --gray-dark: #2A2A2A;
 }
 
 @media(max-width: 1080px){
@@ -35,8 +39,9 @@ export default createGlobalStyle`
 }
 
 body{
-    background: var(--background);
-    color: var(--text);
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
+
 }
 
 body, input, textarea, button {
@@ -51,5 +56,4 @@ a {
     color: inherit;
     text-decoration: none;
 }
-
 `;
