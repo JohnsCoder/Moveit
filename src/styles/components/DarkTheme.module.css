@@ -1,21 +1,15 @@
-.darkTheme {
-    position: relative;
-    justify-content: right;
-}
 .switch {
-    justify-content: center;
-    float: right;
-    margin: 0.40rem;
+  justify-content: center;
+  float: right;
+  margin: 0.4rem;
 }
-.uncheckedHandleIcon{
-    margin: 0.15rem;
-    font-size: 1.25rem;
-    color: #A9A9A9;
-    
-
+.uncheckedHandleIcon {
+  margin: 0.15rem;
+  font-size: 1.25rem;
+  color: white;
 }
 .checkedHandleIcon {
-    margin: 0.15rem;
-    font-size: 1.25rem;
-    color: #363636;
+  margin: 0.15rem;
+  font-size: 1.25rem;
+  color: #363636;
 }

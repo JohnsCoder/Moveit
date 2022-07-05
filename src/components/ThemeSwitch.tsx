@@ -13,7 +13,6 @@ interface Props {
   const { title } = useContext(ThemeContext);
 
   return (
-    <div className={styles.darkTheme}>
       <Switch
         className={styles.switch}
         onChange={toggleTheme}
@@ -21,13 +20,15 @@ interface Props {
 
         offColor="#A9A9A9"
         onColor="#363636"
+
+        offHandleColor="#363636"
+        onHandleColor="#FFF"
         uncheckedIcon={true}
         checkedIcon={true}
         uncheckedHandleIcon={<BsSun className={styles.uncheckedHandleIcon} />}
         checkedHandleIcon={<BsMoon className={styles.checkedHandleIcon} />}
         
       />
-    </div>
   );
 }
 export default ThemeSwitch
